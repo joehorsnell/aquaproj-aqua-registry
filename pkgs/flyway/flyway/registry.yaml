@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/registry.json
+packages:
+  - type: github_release
+    repo_owner: flyway
+    repo_name: flyway
+    description: Database migrations made easy
+    version_filter: Version startsWith "flyway-"
+    version_prefix: flyway-
+    asset: flyway-commandline-{{trimPrefix "flyway-" .Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
+    format: tar.gz
+    overrides:
+      - goos: darwin
+        asset: flyway-commandline-{{trimPrefix "flyway-" .Version}}-macosx-{{.Arch}}.{{.Format}}
+      - goos: windows
+        format: zip
+        asset: flyway-commandline-{{trimPrefix "flyway-" .Version}}-{{.OS}}-{{.Arch}}.{{.Format}}
+        files:
+          - name: flyway.bat
+            src: flyway-{{trimPrefix "flyway-" .Version}}/flyway.bat
+          - name: flyway.cmd
+            src: flyway-{{trimPrefix "flyway-" .Version}}/flyway.cmd
+      - goos: linux
+        goarch: amd64
+        replacements:
+          arch: x64
+      - goos: darwin
+        goarch: amd64
+        replacements:
+          arch: x64
+      - goos: darwin
+        goarch: arm64
+      - goos: windows
+        goarch: amd64
+        replacements:
+          arch: x64
+    files:
+      - name: flyway
+        src: flyway-{{trimPrefix "flyway-" .Version}}/flyway
+    supported_envs:
+      - darwin/amd64
+      - darwin/arm64
+      - linux/amd64
+      - windows/amd64
