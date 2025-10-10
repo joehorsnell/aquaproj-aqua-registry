@@ -1,11 +1,15 @@
 packages:
+  # GitHub releases (>= 11.9.0)
   - name: flyway/flyway@flyway-11.14.0
   - name: flyway/flyway@flyway-11.13.0
   - name: flyway/flyway@flyway-11.12.0
   - name: flyway/flyway@flyway-11.11.0
   - name: flyway/flyway@flyway-11.10.0
-  - name: flyway/flyway@flyway-11.0.0
-  - name: flyway/flyway@flyway-10.21.0
-  - name: flyway/flyway@flyway-10.20.2
-  - name: flyway/flyway@flyway-10.20.1
-  - name: flyway/flyway@flyway-10.20.0
+  - name: flyway/flyway@flyway-11.9.0
+  # Maven Central (< 11.9.0)
+  - name: flyway/flyway@11.8.2
+  - name: flyway/flyway@11.8.1
+  - name: flyway/flyway@11.8.0
+  - name: flyway/flyway@11.0.0
+  - name: flyway/flyway@10.21.0
+  - name: flyway/flyway@10.20.2
